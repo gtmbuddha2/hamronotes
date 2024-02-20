@@ -1,18 +1,45 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  StyleSheet,
+  useColorScheme,
+} from "react-native";
 
-export default function App() {
+const App = (): JSX.Element => {
+  const isDarkMode = useColorScheme() === "dark";
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={isDarkMode ? styles.darkText : styles.lightText}>
+          Hello World Nimesh 24
+        </Text>
+        <Text>Hello World Nimesh 24</Text>
+        <Text>Hello World Nimesh 24</Text>
+      </View>
+      <View>
+        <TextInput>Enter something here...</TextInput>
+      </View>
+    </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  darkText: {
+    color: "white",
+  },
+
+  lightText: {
+    color: "blue",
   },
 });
+
+export default App;
