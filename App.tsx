@@ -1,45 +1,28 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TextInput,
-  StyleSheet,
-  useColorScheme,
-} from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, Text, View } from "react-native";
+import FlatCards from "./components/FlatCards";
+import ElevatedCards from "./components/ElevatedCards";
+import FancyCards from "./components/FancyCards";
+import ActionCard from "./components/ActionCard";
+import ContactList from "./components/ContactList";
 
 const App = (): JSX.Element => {
-  const isDarkMode = useColorScheme() === "dark";
-
   return (
-    <SafeAreaView style={styles.container}>
-      <View>
-        <Text style={isDarkMode ? styles.darkText : styles.lightText}>
-          Hello World Nimesh 24
-        </Text>
-        <Text>Hello World Nimesh 24</Text>
-        <Text>Hello World Nimesh 24</Text>
-      </View>
-      <View>
-        <TextInput>Enter something here...</TextInput>
-      </View>
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.container}>
+          <FlatCards />
+          <ElevatedCards />
+          <FancyCards />
+          <ActionCard />
+          <ContactList />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  darkText: {
-    color: "white",
-  },
-
-  lightText: {
-    color: "blue",
-  },
+  container: {},
 });
 
 export default App;
